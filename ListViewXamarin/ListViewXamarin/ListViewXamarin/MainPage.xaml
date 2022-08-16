@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ListViewXamarin"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             x:Class="ListViewXamarin.MainPage">
+
+    <ContentPage.BindingContext>
+        <local:ListViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <local:ImageConverter x:Key="imageconverter"/>
+    </ContentPage.Resources>
+    <syncfusion:SfListView x:Name="listView" 
+                            ItemSize="{OnPlatform Android=115, Default=100}"
+                            ItemsSource="{Binding Items}" 
+                            LoadMoreOption="Auto"
+                            LoadMoreCommand="{Binding LoadMoreItemsCommand}" 
+                            IsBusy="{Binding IsBusy}"   
+                            ItemSpacing="5"
+                            LoadMoreCommandParameter="{Binding Source={x:Reference Name=listView}}">
+        <syncfusion:SfListView.ItemTemplate>
+            <DataTemplate>
+                <Grid Padding="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="{OnPlatform Android=115, Default=100}"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="{OnPlatform Android=115, Default=100}"/>
+                    </Grid.RowDefinitions>
+                    <Image Grid.Column="0" Source="{Binding ., Converter={StaticResource imageconverter}}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           HeightRequest="50" WidthRequest="50"/>
+                    <Grid Grid.Row="0" Grid.Column="1" Padding="10,0,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Text="{Binding [CustomerID]}" LineBreakMode="WordWrap" TextColor="#DE000000" FontFamily="Roboto-Medium" FontSize="{OnPlatform Android={OnIdiom Phone=15, Tablet=22}, iOS=16, UWP=16}" />
+                        <Label Grid.Row="1" Text="{Binding [ShipAddress]}" LineBreakMode="WordWrap" TextColor="#99000000" LineHeight="1.2"  FontFamily="Roboto-Regular" FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, UWP=14}" />
+                        <Label Grid.Row="2" Text="{Binding [ShipName]}" LineBreakMode="WordWrap"  TextColor="#99000000" LineHeight="1.2"  FontFamily="Roboto-Regular" FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, UWP=14}" />
+                        <Label Grid.Row="3" Text="{Binding [ShipCity]}" LineBreakMode="WordWrap"  TextColor="#99000000" LineHeight="1.2"  FontFamily="Roboto-Regular" FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, UWP=14}" />
+                        <Label Grid.Row="4" Text="{Binding [ShipCountry]}" LineBreakMode="TailTruncation" TextColor="#99000000" LineHeight="1.2"  FontFamily="Roboto-Regular" FontSize="{OnPlatform Android={OnIdiom Phone=13, Tablet=13}, iOS=14, UWP=14}" />
+                    </Grid>
+                </Grid>
+            </DataTemplate>
+        </syncfusion:SfListView.ItemTemplate>
+    </syncfusion:SfListView>
+
+</ContentPage>

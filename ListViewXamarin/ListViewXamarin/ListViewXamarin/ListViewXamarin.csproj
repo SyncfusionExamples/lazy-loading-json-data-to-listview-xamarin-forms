@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\Ellipse630.png" />
+    <None Remove="Images\Ellipse631.png" />
+    <None Remove="Images\Ellipse632.png" />
+    <None Remove="Images\Ellipse633.png" />
+    <None Remove="Images\Ellipse634.png" />
+    <None Remove="Images\Ellipse635.png" />
+    <None Remove="Images\Ellipse636.png" />
+    <None Remove="Images\Ellipse637.png" />
+    <None Remove="Images\Ellipse638.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Images\Ellipse630.png" />
+    <EmbeddedResource Include="Images\Ellipse631.png" />
+    <EmbeddedResource Include="Images\Ellipse633.png" />
+    <EmbeddedResource Include="Images\Ellipse634.png" />
+    <EmbeddedResource Include="Images\Ellipse635.png" />
+    <EmbeddedResource Include="Images\Ellipse636.png" />
+    <EmbeddedResource Include="Images\Ellipse637.png" />
+    <EmbeddedResource Include="Images\Ellipse638.png" />
+    <EmbeddedResource Include="Images\Ellipse632.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="20.2.0.40" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Microsoft.CSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
